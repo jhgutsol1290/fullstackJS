@@ -9,8 +9,10 @@ module.exports = {
     entry: './frontend/app.js',
     output: {
         path: path.join(__dirname, 'backend/public'),
-        filename: 'bundle.js'
+        filename: 'js/bundle.js'
     },
+    mode: 'production',
+    
     module: {
         rules: [
             {
@@ -35,8 +37,9 @@ module.exports = {
             }
         }),
         new MiniCssExctractPlugin({
-            filename: 'bundle.css'
+            filename: 'css/bundle.css'
         })
-    ]
+    ],
+    devtool: 'source-map'
 
 }

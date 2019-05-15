@@ -6,6 +6,7 @@ const express = require('express')
 const morgan = require('morgan')
 const multer = require('multer')
 const path = require('path')
+const cors = require('cors')
 
 //Initializations
 const app = express()
@@ -24,7 +25,8 @@ const storage = multer.diskStorage({
 })
 app.use(multer({storage}).single('image'))
 app.use(express.urlencoded({extended:false})) //I can undesrtand data from forms
-app.use(express.json()) // I can understand JSON data types
+app.use(express.json()) // I can understand JSON data types para creacionde restAPI
+app.use(cors())
 
 //Routes
 app.use('/api/books', require('./routes/books'))
